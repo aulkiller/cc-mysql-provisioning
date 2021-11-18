@@ -55,11 +55,14 @@ class PhpmyadminProvisioning:
         except Exception as e:
             pass
     def get(self,username='royyana'):
-        self.username = username
-        info = dict(username=self.username,
-                    phpmyadmin_port=self.userdb[f"{self.username}_phpmyadmin_port"],
-                    mysql_port=self.userdb[f"{self.username}_mysql_port"])
-        return dict(status="OK", info=info)
+        try:
+            self.username = username
+            info = dict(username=self.username,
+                        phpmyadmin_port=self.userdb[f"{self.username}_phpmyadmin_port"],
+                        mysql_port=self.userdb[f"{self.username}_mysql_port"])
+            return dict(status="OK", info=info)
+        except Exception as e:
+            return dict(status="ERROR")
 
     def create(self,username='royyana'):
         self.username=username
