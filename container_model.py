@@ -26,8 +26,12 @@ class PhpmyadminProvisioning:
             verify=True
         )
 
-
         self.mesin_terpilih = 'mesin1'
+
+    def set_mesin(self,pilihan='mesin1'):
+        self.mesin_terpilih=pilihan
+        #dapat menggunakan algoritma load balancing untuk membagi beban antar mesin
+
     def nomor_ports_belum_dialokasikan(self,no_port=11111):
         nama_mesin = self.mesin_terpilih
         try:
@@ -128,12 +132,14 @@ class PhpmyadminProvisioning:
 
 def run():
     c = PhpmyadminProvisioning()
+    pass
+    #c.set_mesin('mesin2')
     #create resource phpmyadmin-mysql
-#    info = c.create(username='royyana')
+    info = c.create(username='royyana')
 
     #get resource info phpmyadmin-mysql
-    info = c.get(username='royyana')
-    c.delete(username='royyana')
+    #info = c.get(username='royyana')
+    #c.delete(username='royyana')
 
 if __name__=='__main__':
     run()
