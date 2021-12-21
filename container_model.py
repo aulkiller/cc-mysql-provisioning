@@ -108,11 +108,11 @@ class PhpmyadminProvisioning:
 def run():
     c = PhpmyadminProvisioning()
     #create resource phpmyadmin-mysql
-#    info = c.create(username='royyana')
+    info = c.create(username='royyana')
 
     #get resource info phpmyadmin-mysql
-    info = c.get(username='royyana')
-    c.delete(username='royyana')
+    # info = c.get(username='royyana')
+    # c.delete(username='royyana')
 
 if __name__=='__main__':
     run()
